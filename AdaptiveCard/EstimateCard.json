@@ -1,0 +1,89 @@
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "Container",
+            "style": "emphasis",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Estimating Session",
+                    "wrap": true
+                }
+            ],
+            "padding": "Default"
+        },
+        {
+            "type": "Container",
+            "id": "a27409f1-a48e-982f-8e26-594bdd1468e8",
+            "padding": "Default",
+            "items": [
+                {
+                    "type": "Input.Text",
+                    "id": "b9fa6b30-1b91-b6cc-778d-2b25aa08bb97",
+                    "placeholder": "Story Name",
+                    "isRequired": true
+                },
+                {
+                    "type": "ActionSet",
+                    "horizontalAlignment": "Left",
+                    "actions": [
+                        {
+                            "type": "Action.Http",
+                            "title": "Initiate Estimation",
+                            "method": "POST",
+                            "url": "https://messagecardplaygroundfn.azurewebsites.net/api/HttpPost?code=zJaYHdG4dZdPK0GTymwYzpaCtcPAPec8fTvc2flJRvahwigYWg3p0A==&message=The Poll is submitted successfully",
+                            "body": "{User: {{@context}}, SuggestionText: {{Suggestions.value}}}",
+                            "isPrimary": true,
+                            "style": "positive"
+                        },
+                        {
+                            "type": "Action.ToggleVisibility",
+                            "id": "e1470133-371d-abed-2d42-0e3eed06636d",
+                            "title": "Show Results",
+                            "targetElements": [
+                                "d96d06ec-2a33-c8cc-4698-430ae87f772f"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "spacing": "None"
+        },
+        {
+            "type": "Container",
+            "id": "d96d06ec-2a33-c8cc-4698-430ae87f772f",
+            "padding": "Default",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "id": "564daa23-c80e-9c6c-e39b-ee4e3638d287",
+                    "text": "Participants",
+                    "wrap": true,
+                    "weight": "Bolder"
+                },
+                {
+                    "type": "FactSet",
+                    "id": "36dee25c-ca2f-b0ba-5307-b5244a717382",
+                    "facts": [
+                        {
+                            "title": "User",
+                            "value": "Vote"
+                        },
+                        {
+                            "title": "User",
+                            "value": "Vote"
+                        }
+                    ]
+                }
+            ],
+            "spacing": "None",
+            "separator": true
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "padding": "None",
+    "@type": "AdaptiveCard",
+    "@context": "http://schema.org/extensions"
+}

@@ -37,13 +37,13 @@ namespace DccsTeamsEstimate.Controllers
         }
 
         [HttpPost("{cardHandle}/vote")]
-        public async Task<EstimateView> Vote([FromQuery]Guid cardHandle, [FromBody]EstimateCreate estimate)
+        public async Task<EstimateView> Vote([FromRoute]Guid cardHandle, [FromBody]EstimateCreate estimate)
         {
             return await _dataAccess.CreateEstimate(cardHandle, estimate);
         }
 
         [HttpGet("{cardHandle}")]
-        public async Task<CardView> Reveal(Guid cardHandle)
+        public async Task<CardView> Reveal([FromRoute]Guid cardHandle)
         {
             return await _dataAccess.GetCard(cardHandle);
         }

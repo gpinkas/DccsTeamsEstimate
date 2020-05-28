@@ -21,9 +21,6 @@ namespace DccsTeamsEstimate
 {
     public class Startup
     {
-        private const string _apiName = "DccsTeamsEstimate API";
-        private const string _apiVersion = "v1";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -38,7 +35,7 @@ namespace DccsTeamsEstimate
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = _apiName, Version = _apiVersion });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = Globals.ApiName, Version = Globals.ApiVersion });
                 //c.DescribeAllEnumsAsStrings();
             });
 
@@ -68,7 +65,7 @@ namespace DccsTeamsEstimate
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{_apiVersion}/swagger.json", $"{_apiName} {_apiVersion}");
+                c.SwaggerEndpoint($"/swagger/{Globals.ApiVersion}/swagger.json", $"{Globals.ApiName} {Globals.ApiVersion}");
             });
 
             app.UseEndpoints(endpoints =>

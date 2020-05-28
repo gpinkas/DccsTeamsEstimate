@@ -47,5 +47,13 @@ namespace DccsTeamsEstimate.Controllers
         {
             return await _dataAccess.GetCard(cardHandle);
         }
+
+        [HttpGet("version")]
+        public string GetVersion()
+        {
+            var build = GetType().Assembly.GetName().Version;
+            return $"{Globals.ApiName} {Globals.ApiVersion} - Build {build}";
+        }
+
     }
 }

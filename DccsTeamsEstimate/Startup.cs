@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using DccsTeamsEstimate.DataAccess;
+using DccsTeamsEstimate.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,11 @@ namespace DccsTeamsEstimate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddAutoMapper(mapperConf =>
+            {
+                mapperConf.AddEstimateMapping();
+            }, typeof(Startup));
 
             services.AddDbContext<EstimateDbContext>();
             services.AddScoped<IEstimateDataAccess, EstimateDataAccess>();

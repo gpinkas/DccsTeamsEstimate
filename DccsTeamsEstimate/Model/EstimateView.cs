@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace DccsTeamsEstimate.Model
 {
-    public class Card
+    public class EstimateView
     {
-        public Guid Handle { get; set; }
+        public string UserName { get; set; }
 
-        public string Name { get; set; }
+        public int Vote { get; set; }
 
         public DateTime CreateDateUtc { get; set; }
-
-        public int EstimationMode { get; set; }
     }
 }

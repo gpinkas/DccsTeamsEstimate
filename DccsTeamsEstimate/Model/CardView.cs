@@ -15,6 +15,6 @@ namespace DccsTeamsEstimate.Model
 
         public int EstimationMode { get; set; }
 
-        public virtual List<Estimate> Estimates { get; set; }
+        public virtual List<EstimateView> Estimates { get; set; }
     }
 }

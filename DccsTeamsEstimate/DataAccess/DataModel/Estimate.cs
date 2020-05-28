@@ -12,6 +12,8 @@ namespace DccsTeamsEstimate.DataAccess.DataModel
 
         public int CardId { get; set; }
 
+        public string UserName { get; set; }
+
         public DateTime CreateDateUtc { get; set; }
 
         public int Vote { get; set; }

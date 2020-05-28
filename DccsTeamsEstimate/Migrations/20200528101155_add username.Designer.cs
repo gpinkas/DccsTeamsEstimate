@@ -3,14 +3,16 @@ using System;
 using DccsTeamsEstimate.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DccsTeamsEstimate.Migrations
 {
     [DbContext(typeof(EstimateDbContext))]
-    partial class EstimateDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200528101155_add username")]
+    partial class addusername
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

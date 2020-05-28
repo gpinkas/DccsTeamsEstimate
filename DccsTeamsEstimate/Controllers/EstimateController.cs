@@ -16,43 +16,36 @@ namespace DccsTeamsEstimate.Controllers
     public class EstimateController : ControllerBase
     {
         private readonly ILogger<EstimateController> _logger;
-        private readonly EstimateDataAccess _dataAccess;
+        private readonly IEstimateDataAccess _dataAccess;
 
-        public EstimateController(ILogger<EstimateController> logger, EstimateDataAccess dataAccess)
+        public EstimateController(ILogger<EstimateController> logger, IEstimateDataAccess dataAccess)
         {
             _logger = logger;
             _dataAccess = dataAccess;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Card>> GetCards()
+        public async Task<IEnumerable<CardView>> GetCards()
         {
             return await _dataAccess.GetAllCards();
         }
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpPost("init")]
+        public async Task<CardView> Initialize([FromBody]CardCreate card)
         {
-            return "value";
+            return await _dataAccess.CreateCard(card);
         }
 
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
+        [HttpPost("{cardHandle}/vote")]
+        public async Task<EstimateView> Vote([FromQuery]Guid cardHandle, [FromBody]EstimateCreate estimate)
         {
+            return await _dataAccess.CreateEstimate(cardHandle, estimate);
         }
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpGet("{cardHandle}")]
+        public async Task<CardView> Reveal(Guid cardHandle)
         {
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return await _dataAccess.GetCard(cardHandle);
         }
     }
 }

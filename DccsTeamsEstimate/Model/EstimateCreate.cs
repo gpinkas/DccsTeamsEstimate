@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace DccsTeamsEstimate.Model
 {
-    public class Estimate
+    public class EstimateCreate
     {
-        public int Id { get; set; }
-
-        public int CardId { get; set; }
-
-        public DateTime CreateDateUtc { get; set; }
+        public string UserName { get; set; }
 
         public int Vote { get; set; }
-
-        [ForeignKey("CardId")]
-        public virtual Card Card { get; set; }
     }
 }

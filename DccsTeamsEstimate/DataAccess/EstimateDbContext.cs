@@ -1,4 +1,4 @@
-﻿using DccsTeamsEstimate.Model;
+﻿using DccsTeamsEstimate.DataAccess.DataModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
